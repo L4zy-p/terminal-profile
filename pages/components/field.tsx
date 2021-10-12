@@ -3,7 +3,7 @@ import { MultiText } from './mutitext'
 import { UserText } from './usertext'
 import { Text } from './text'
 import { recognizedCommands } from '../constants'
-import math from 'mathjs'
+import { evaluate } from 'mathjs'
 
 interface FieldProps {
   theme: any
@@ -89,10 +89,8 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
     }
   }
   const handleInputEvaluation = (input: any) => {
-    const x: any = math?.evaluate(input)
-
     try {
-      const evaluatedForArithmetic: any = math?.evaluate(input)
+      const evaluatedForArithmetic: any = evaluate(input)
       if (!isNaN(evaluatedForArithmetic)) {
         setFieldHistory((fieldHistory: any) => [...fieldHistory, { text: evaluatedForArithmetic }])
 
