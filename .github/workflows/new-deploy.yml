@@ -37,6 +37,10 @@ jobs:
       env:
         NEXT_PUBLIC_BASE_PATH: /terminal-profile
     - run: touch ./out/.nojekyll
+
+    - name: Set Actions Allow Unsecure Commands
+        run: |
+          echo "::set-env name=DEPLOYMENT_STATUS::skipped" >> $GITHUB_ENV
     
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@3.5.9
