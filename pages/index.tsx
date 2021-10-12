@@ -1,6 +1,5 @@
 import React from "react"
-import { Terminal } from './components/terminail'
-import { recognizedCommands } from './constants'
+import { Terminal } from '../components/terminail'
 
 const IndexPage = () => {
   const [theme, setTheme] = React.useState('dark')
