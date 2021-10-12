@@ -389,7 +389,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
       })}
       <UserText input={userInput} theme={theme.cursor} />
     </div>
-    <div className='tags-title'>{`>_COMMAND LIST`} (You can click it if you're lazy to type a message. 😁)</div>
+    <div className='tags-title'>_COMMAND LIST` (You can click it if you're lazy to type a message. 😁)</div>
     <ul className='tags'>
       {
         recognizedCommands?.map((r, i) => <li key={i}>
