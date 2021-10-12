@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
       
@@ -37,10 +37,6 @@ jobs:
       env:
         NEXT_PUBLIC_BASE_PATH: /terminal-profile
     - run: touch ./out/.nojekyll
-
-    - name: Set Actions Allow Unsecure Commands
-      run: |
-        echo "ACTIONS_ALLOW_UNSECURE_COMMANDS=true" >> $GITHUB_ENV
     
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@3.5.9
