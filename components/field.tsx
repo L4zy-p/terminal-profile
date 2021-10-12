@@ -387,7 +387,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
       })}
       <UserText input={userInput} theme={theme.cursor} />
     </div>
-    <div className='tags-title'>_COMMAND LIST</div>
+    <div className='tags-title'>_COMMAND LIS T</div>
     <ul className='tags'>
       {
         recognizedCommands?.map((r, i) => <li key={i}>
