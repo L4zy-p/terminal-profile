@@ -24,7 +24,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
   useEffect(() => {
     if (typeof window.orientation !== "undefined" || navigator.userAgent.indexOf('IEMobile') !== -1) {
       setIsMobile(true)
-      setFieldHistory([...fieldHistory, { isCommand: true }, {
+      setFieldHistory((fieldHistory: any) => [...fieldHistory, { isCommand: true }, {
         text: `Unfortunately due to this application being an 'input-less' environment, mobile is not supported. I'm working on figuring out how to get around this, so please bear with me! In the meantime, come on back if you're ever on a desktop.`,
         isError: true,
         hasBuffer: true
@@ -32,7 +32,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
     }
 
     document?.querySelector('#useless-btn')?.addEventListener('click', () => {
-      setFieldHistory([...fieldHistory, { isCommand: true }, { text: 'SYS >> That button doesn\'t do anything.', hasBuffer: true }])
+      setFieldHistory((fieldHistory: any) => [...fieldHistory, { isCommand: true }, { text: 'SYS >> That button doesn\'t do anything.', hasBuffer: true }])
     })
   }, [])
 
@@ -75,11 +75,11 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
         if (userInput.length) {
           setCommandHistory(userInput === '' ? commandHistory : [userInput, commandHistory])
           setCommandHistoryIndex(0)
-          setFieldHistory([...fieldHistory, { text: userInput, isCommand: true }])
+          setFieldHistory((fieldHistory: any) => [...fieldHistory, { text: userInput, isCommand: true }])
           setUserInput('')
           handleInputEvaluation(userInput)
         } else {
-          setFieldHistory([...fieldHistory, { isCommand: true }])
+          setFieldHistory((fieldHistory: any) => [...fieldHistory, { isCommand: true }])
         }
 
       } else {
@@ -94,7 +94,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
     try {
       const evaluatedForArithmetic: any = math?.evaluate(input)
       if (!isNaN(evaluatedForArithmetic)) {
-        setFieldHistory([...fieldHistory, { text: evaluatedForArithmetic }])
+        setFieldHistory((fieldHistory: any) => [...fieldHistory, { text: evaluatedForArithmetic }])
 
       }
 
@@ -108,7 +108,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
       const isError = !recognizedCommands.some((s: any) => s.command === parsedCmd)
 
       if (isError) {
-        setFieldHistory([...fieldHistory, giveError('nr', input)])
+        setFieldHistory((fieldHistory: any) => [...fieldHistory, giveError('nr', input)])
 
       }
 
@@ -119,20 +119,20 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
     if (cmd === 'help') {
       if (params.length) {
         if (params.length > 1) {
-          setFieldHistory([...fieldHistory, giveError('bp', { cmd: 'HELP', noAccepted: 1 })])
+          setFieldHistory((fieldHistory: any) => [...fieldHistory, giveError('bp', { cmd: 'HELP', noAccepted: 1 })])
 
         }
 
         const cmdsWithHelp = recognizedCommands.filter((s: any) => s.help)
 
         if (cmdsWithHelp.filter(s => s.command === params[0]).length) {
-          setFieldHistory([...fieldHistory, {
+          setFieldHistory((fieldHistory: any) => [...fieldHistory, {
             text: cmdsWithHelp.filter(s => s.command === params[0])[0].help,
             hasBuffer: true
           }])
 
         } else if (recognizedCommands.filter((s: any) => s.command === params[0]).length) {
-          setFieldHistory([...fieldHistory, {
+          setFieldHistory((fieldHistory: any) => [...fieldHistory, {
             text: [
               `No additional help needed for ${recognizedCommands.filter(s => s.command === params[0])[0].command.toUpperCase()}`,
               recognizedCommands.filter(s => s.command === params[0])[0].purpose
@@ -142,11 +142,11 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
 
         }
 
-        return setFieldHistory([...fieldHistory, giveError('up', params[0]?.toUpperCase())])
+        return setFieldHistory((fieldHistory: any) => [...fieldHistory, giveError('up', params[0]?.toUpperCase())])
 
 
       }
-      return setFieldHistory([...fieldHistory, {
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, {
         text: [
           'Main commands:',
           ...recognizedCommands
@@ -170,18 +170,18 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
 
     } else if (cmd === 'start') {
       if (params.length === 1) {
-        setFieldHistory([...fieldHistory, { text: `Launching ${params[0]}...`, hasBuffer: true }])
+        setFieldHistory((fieldHistory: any) => [...fieldHistory, { text: `Launching ${params[0]}...`, hasBuffer: true }])
         window.open(/http/i.test(params[0]) ? params[0] : `https://${params[0]}`)
         return
 
       }
-      return setFieldHistory([...fieldHistory, giveError('bp', { cmd: 'START', noAccepted: 1 })])
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, giveError('bp', { cmd: 'START', noAccepted: 1 })])
 
     } else if (cmd === 'date') {
-      return setFieldHistory([...fieldHistory, { text: `The current date is: ${new Date(Date.now()).toLocaleDateString()}`, hasBuffer: true }])
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, { text: `The current date is: ${new Date(Date.now()).toLocaleDateString()}`, hasBuffer: true }])
 
     } else if (cmd === 'cmd') {
-      setFieldHistory([...fieldHistory, { text: 'Launching new instance of the React Terminal...', hasBuffer: true }])
+      setFieldHistory((fieldHistory: any) => [...fieldHistory, { text: 'Launching new instance of the React Terminal...', hasBuffer: true }])
       window.open('https://codepen.io/HuntingHawk/full/rNaEZxW')
       return
 
@@ -189,21 +189,21 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
 
       if (flags.length === 1 && (['-d', '-dark', '-l', '-light'].some(s => s === flags[0]))) {
         const themeToSet = flags[0] === '-d' || flags[0] === '-dark' ? 'dark' : 'light'
-        setFieldHistory([...fieldHistory, { text: `Set the theme to ${themeToSet.toUpperCase()} mode`, hasBuffer: true }])
+        setFieldHistory((fieldHistory: any) => [...fieldHistory, { text: `Set the theme to ${themeToSet.toUpperCase()} mode`, hasBuffer: true }])
         setTheme(themeToSet)
         return
 
       }
 
-      return setFieldHistory([...fieldHistory, giveError(!flags.length ? 'nf' : 'bf', 'THEME')])
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, giveError(!flags.length ? 'nf' : 'bf', 'THEME')])
 
     } else if (cmd === 'exit') {
       return window.location.href = 'https://codepen.io/HuntingHawk'
     } else if (cmd === 'time') {
-      return setFieldHistory([...fieldHistory, { text: `The current time is: ${new Date(Date.now()).toLocaleTimeString()}`, hasBuffer: true }])
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, { text: `The current time is: ${new Date(Date.now()).toLocaleTimeString()}`, hasBuffer: true }])
 
     } else if (cmd === 'about') {
-      return setFieldHistory([...fieldHistory, {
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, {
         text: [
           'Hey there!',
           `My name is Kwangnoi.`,
@@ -214,7 +214,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
       }])
 
     } else if (cmd === 'experience') {
-      return setFieldHistory([...fieldHistory, {
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, {
         text: [
           'Experience:',
           'Open Source Technology',
@@ -232,7 +232,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
         ], hasBuffer: true
       }])
     } else if (cmd === 'skills') {
-      return setFieldHistory([...fieldHistory, {
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, {
         text: [
           'Languages:',
           'HTML',
@@ -259,7 +259,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
         ], hasBuffer: true
       }])
     } else if (cmd === 'contact') {
-      return setFieldHistory([...fieldHistory, {
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, {
         text: [
           'Email: hemhongsa.p94@gmail.com',
           'Website: jacoblockett.com',
@@ -270,7 +270,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
       }])
 
     } else if (cmd === 'projects') {
-      return setFieldHistory([...fieldHistory, {
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, {
         text: [
           'To view any of these projects live or their source files, type PROJECT <TITLE>, e.g. PROJECT Minesweeper.',
           '',
@@ -315,17 +315,17 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
           live: 'https://codepen.io/HuntingHawk/full/mNPVgj'
         }]
 
-        setFieldHistory([...fieldHistory, { text: `Launching ${params[0]}...`, hasBuffer: true }])
+        setFieldHistory((fieldHistory: any) => [...fieldHistory, { text: `Launching ${params[0]}...`, hasBuffer: true }])
         window.open(projects.filter(s => s.title === params[0])?.[0]?.live)
 
         return
 
       }
 
-      return setFieldHistory([...fieldHistory, giveError('bp', { cmd: 'PROJECT', noAccepted: 1 })])
+      return setFieldHistory((fieldHistory: any) => [...fieldHistory, giveError('bp', { cmd: 'PROJECT', noAccepted: 1 })])
 
     } else if (cmd === 'title') {
-      setFieldHistory([...fieldHistory, {
+      setFieldHistory((fieldHistory: any) => [...fieldHistory, {
         text: `Set the React Terminal title to ${params.length > 0 ? params.join(' ') : '<BLANK>'}`,
         hasBuffer: true
       }])
@@ -366,7 +366,7 @@ export const Field = ({ theme, setTheme, setTitle }: FieldProps) => {
   const handleClickCommand = (cmd: string) => {
     setCommandHistory(cmd === '' ? commandHistory : [cmd, commandHistory])
     setCommandHistoryIndex(0)
-    setFieldHistory([...fieldHistory, { text: cmd, isCommand: true }])
+    setFieldHistory((fieldHistory: any) => [...fieldHistory, { text: cmd, isCommand: true }])
     setUserInput('')
     handleInputEvaluation(cmd)
   }
