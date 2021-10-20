@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   font-family: Roboto Mono;
+  /* font-family: 'Press Start 2P', cursive; */
 }
 :focus,
 :hover,
@@ -26,8 +28,9 @@ body {
 #terminal {
   width: 90vw;
   max-width: 900px;
-  height: 550px;
+  height: 450px;
   transition: 0.2s;
+  /* max-height: 550px; */
 }
 #window {
   height: 40px;
@@ -35,12 +38,14 @@ body {
   align-items: center;
   padding: 0 15px;
   cursor: default;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 .text-header-title {
   font-family: "Amatic SC", cursive;
   text-align: center;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   font-size: 50px;
 }
 .tags {
@@ -57,7 +62,7 @@ body {
   color: #fff;
   font-weight: 700;
   font-size: 16px;
-  margin: 15px 0;
+  margin: 25px 0 15px;
 }
 .tags li {
   float: left;
@@ -106,7 +111,8 @@ body {
   font-size: 0.85rem;
 }
 #title {
-  margin-left: auto;
+  /* margin-left: auto; */
+  margin: 0 auto;
 }
 #field {
   height: calc(100% - 40px);
@@ -116,6 +122,8 @@ body {
 		but it won't for some reason. In the meantime,
 		overflow-wrap: break-word will have to do. */
   overflow-wrap: break-word;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 #field::-webkit-scrollbar {
   width: 10px;
@@ -145,7 +153,7 @@ body {
 #cursor {
   position: relative;
   bottom: -2px;
-  left: 2px;
+  left: -2px;
   width: 0.5rem;
   height: 3px;
 }

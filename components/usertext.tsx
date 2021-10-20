@@ -4,7 +4,7 @@ interface UserTextProps {
 }
 
 export const UserText = ({ input, theme }: UserTextProps) => <div>
-  <div id="query">{`RT C:\Users\Guest>`}</div>
+  <div id="query">{`C:\\Users\\Guest>`}</div>
   <span>{input}</span>
   <div id="cursor" style={theme}></div>
 </div>

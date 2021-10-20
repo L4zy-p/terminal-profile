@@ -1,6 +1,6 @@
 export const recognizedCommands = [{
   command: 'help',
-  purpose: 'Provides help information for React Terminal commands.'
+  purpose: 'Provides help information for Profile Terminal commands.'
 }, {
   command: 'date',
   purpose: 'Displays the current date.'
@@ -17,21 +17,21 @@ export const recognizedCommands = [{
   command: 'cls',
   purpose: 'Clears the screen.'
 }, {
-  command: 'cmd',
-  purpose: 'Starts a new instance of the React Terminal.'
+  command: 'ref',
+  purpose: 'Reference source code'
 }, {
   command: 'theme',
-  purpose: 'Sets the color scheme of the React Terminal.',
+  purpose: 'Sets the color scheme of the Profile Terminal.',
   help: [
     'THEME [-l, -light, -d, -dark]',
-    'Sets the color scheme of the React Terminal.',
+    'Sets the color scheme of the Profile Terminal.',
     '',
     '-l, -light...............Sets the color scheme to light mode.',
     '-d, -dark................Sets the color scheme to dark mode.'
   ]
 }, {
   command: 'exit',
-  purpose: 'Quits the React Terminal and returns to Jacob\'s portfolio page.'
+  purpose: 'Quits the Profile Terminal and returns to Jacob\'s portfolio page.'
 }, {
   command: 'time',
   purpose: 'Displays the current time.'
@@ -73,11 +73,11 @@ export const recognizedCommands = [{
   ]
 }, {
   command: 'title',
-  purpose: 'Sets the window title for the React Terminal.',
+  purpose: 'Sets the window title for the Profile Terminal.',
   help: [
     'TITLE <INPUT>',
-    'Sets the window title for the React Terminal.',
+    'Sets the window title for the Profile Terminal.',
     '',
-    'INPUT....................The title you want to use for the React Terminal window.'
+    'INPUT....................The title you want to use for the Profile Terminal window.'
   ]
 }]
