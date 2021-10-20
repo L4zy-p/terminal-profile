@@ -191,8 +191,8 @@ export const Terminal = ({ theme, setTheme }: TerminalProps) => {
       return setFieldHistory((fieldHistory: any) => [...fieldHistory, {
         text: [
           'Hey there!',
-          `My name is Kwangnoi.`,
-          `I'm a frontend developer.`,
+          `My name is L4zy-p.`,
+          `Anime and Mange lover`,
           `My birthday is May 30th.`,
           `Type CONTACT if you'd like to get in touch - otherwise I hope you enjoy using the rest of the app!`
         ], hasBuffer: true
@@ -269,7 +269,7 @@ export const Terminal = ({ theme, setTheme }: TerminalProps) => {
 
     } else if (cmd === 'title') {
       setFieldHistory((fieldHistory: any) => [...fieldHistory, {
-        text: `Set the React Terminal title to ${params.length > 0 ? params.join(' ') : '<BLANK>'}`,
+        text: `Set the Profile Terminal title to ${params.length > 0 ? params.join(' ') : '<BLANK>'}`,
         hasBuffer: true
       }])
       setTitle(params.length > 0 ? params.join(' ') : '')
