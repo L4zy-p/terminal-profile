@@ -336,7 +336,7 @@ export const Terminal = ({ theme, setTheme }: TerminalProps) => {
     </div>
     {
       !maximized && <>
-        <div className='tags-title'>COMMAND LIST 🚀</div>
+        <div className='tags-title'>CLICK FAST COMMAND LIST 🚀</div>
         <ul className='tags'>
           {
             recognizedCommands?.map((r, i) => <li key={i}>
