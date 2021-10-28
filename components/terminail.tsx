@@ -20,7 +20,7 @@ export const Terminal = ({ theme, setTheme }: TerminalProps) => {
   const [userInput, setUserInput] = useState<any>('')
   const [isMobile, setIsMobile] = useState<any>(false)
 
-  const handleClose = () => (window.location.href = 'https://codepen.io/HuntingHawk')
+  const handleClose = () => (window.location.href = 'https://github.com/L4zy-p')
 
   const handleMinMax = () => {
     setMaximized(!maximized)
