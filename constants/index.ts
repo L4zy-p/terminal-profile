@@ -37,7 +37,7 @@ export const recognizedCommands = [{
 // },
  {
   command: 'exit',
-  purpose: 'Quits the Profile Terminal and returns to Jacob\'s portfolio page.'
+  purpose: 'Quits the Profile Terminal and returns to L4zy-p\'s portfolio page.'
 }, 
 // {
 //   command: 'time',
@@ -46,27 +46,27 @@ export const recognizedCommands = [{
 {
   command: 'about',
   isMain: true,
-  purpose: 'Displays basic information about Jacob.'
+  purpose: 'Displays basic information about L4zy-p.'
 }, 
 {
   command: 'experience',
   isMain: true,
-  purpose: 'Displays information about Jacob\'s experience.'
+  purpose: 'Displays information about L4zy-p\'s experience.'
 },
  {
   command: 'skills',
   isMain: true,
-  purpose: 'Displays information about Jacob\'s skills as a developer.'
+  purpose: 'Displays information about L4zy-p\'s skills as a developer.'
 }, 
 {
   command: 'contact',
   isMain: true,
-  purpose: 'Displays contact information for Jacob.'
+  purpose: 'Displays contact information for L4zy-p.'
 }, 
 // {
 //   command: 'projects',
 //   isMain: true,
-//   purpose: 'Displays information about what projects Jacob has done in the past.'
+//   purpose: 'Displays information about what projects L4zy-p has done in the past.'
 // }, 
 // {
 //   command: 'project',
